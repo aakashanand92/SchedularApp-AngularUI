@@ -1,0 +1,26 @@
+<div style="margin-left: 10%">
+    <div *ngIf="isDelete|| isUpdate">
+        <select name="id" id="id" [(ngModel)]="id" (change)="idSelected()" style="width: 174px;height: 24px;">
+            <option *ngFor= "let id of idsAvailable" [ngValue]="id">{{id}}</option>
+        </select>
+ <!-- <input type ="text" id ="id" placeholder="ID"[(ngModel)]="id"/> -->
+  </div>
+  <div *ngIf="!isDelete">
+  <input type = "text" placeholder="Name" [(ngModel)]="candidate.name"/><br>
+  <select name="date" id="date" [(ngModel)]="candidate.priority" style="width: 174px;height: 24px;">
+      <option *ngFor= "let priority of priorities" [ngValue]="priority">{{priority}}</option>
+    </select>
+    <br>
+ <!-- <input type = "text" placeholder="Priority" [(ngModel)]="candidate.priority"/><br> -->
+  <input type = "text" placeholder="E-Mail" [(ngModel)]="candidate.email"/><br>
+  <input type = "text" placeholder="Phone Number" [(ngModel)]="candidate.phoneNo"/><br>
+  
+  </div>
+  <br>
+  <br>
+  <div >
+    <button class="btn btn primary" (click)="goToHome()">Home</button>
+    <button class="btn btn success"(click)="performAction()" style="margin-left: 30%">{{ buttonName }}</button>
+  </div>
+  </div>
+  

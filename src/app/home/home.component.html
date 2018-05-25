@@ -1,0 +1,102 @@
+<p style="font-size: 30px; text-align: center">
+  Welcome to Schedular App, Please select an action !
+
+</p>
+
+<div >
+  <table style="align-self: center; width:100%;text-align: center">
+    <tr>
+  <td>
+  <button class="btn btn-primary" (click)="createInterviewer()">Create Interviewer</button>
+  </td>
+  <td>
+      <button class="btn btn-primary" (click)="createCandidate()" style="margin-left: 5px">Create Candidate</button>
+      </td>
+    
+</tr>
+<tr>
+  <td>
+  <button class="btn btn-primary" (click)="deleteInterviewer()">Delete Interviewer</button>
+</td>
+<td>
+    <button class="btn btn-primary" (click)="deleteCandidate()" style="margin-left: 5px">Delete Candidate</button>
+  </td>
+  
+</tr>
+<tr>
+  <td>
+  <button class="btn btn-primary" (click)="updateInterviewer()">Update Interviewer</button>
+</td>
+<td>
+    <button class="btn btn-primary" (click)="updateCandidate()" style="margin-left: 5px">Update Candidate</button>
+  </td>
+  
+</tr>
+
+<tr>
+    <td>
+    <button class="btn btn-primary" (click)="addTimeSlotForInterviewer()">Add TS Interviewer</button>
+  </td>
+  <td>
+      <button class="btn btn-primary" (click)="addTimeSlotForCandidate()" style="margin-left: 5px">Add TS Candidate</button>
+    </td>
+   </tr>
+</table>
+</div>
+
+<br>
+<br>
+<br>
+<div ><div style="align-self: center;text-align: center"><button class = "btn btn-primary" (click)="schedule()"  >Schedule</button></div>
+</div>
+<br>
+<br>
+<br>
+<div *ngIf="showInterviews">
+<table style="width: 100%;border: 1px solid black">
+<tr style="text-align: center">
+<td style="border: 1px solid black">
+  INTERVIEWER ID
+</td>
+<td style="border: 1px solid black">
+  INTERVIEWER NAME
+</td>
+<td style="border: 1px solid black">
+  CANDIDATE ID
+</td>
+<td style="border: 1px solid black">
+  CANDIDATE NAME
+</td>
+<td style="border: 1px solid black">
+  TIME-SLOT
+</td>
+<td style="border: 1px solid black;width: 20%">
+  DATE
+</td>
+</tr>
+<tr *ngFor="let interview of listOfInterviews" style="text-align: center">
+  <td style="border: 1px solid black">
+    {{interview.interviewerId}}
+  </td>
+  <td style="border: 1px solid black">
+    {{getInterviewerName(interview.interviewerId)}}
+  </td>
+  <td style="border: 1px solid black">
+  {{interview.candidateId}}
+  </td>
+  <td style="border: 1px solid black">
+  {{getCandidateName(interview.candidateId)}}
+  </td>
+  <td style="border: 1px solid black">
+  {{interview.startTime}}-{{interview.endTime}}
+  </td>
+  <td style="border: 1px solid black">
+  {{interview.date}}
+  </td>
+
+</tr>
+</table>
+</div>
+<p style="text-align: center">
+{{output}}
+</p>

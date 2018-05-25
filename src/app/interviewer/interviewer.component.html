@@ -1,0 +1,26 @@
+<div style="margin-left: 10%">
+  <div *ngIf="isDelete|| isUpdate">
+
+<!--<input type ="text" id ="id" placeholder="ID"[(ngModel)]="id"/>-->
+<select name="id" id="id" [(ngModel)]="id" (change)="idSelected()" style="width: 174px;height: 24px;">
+    <option *ngFor= "let id of idsAvailable" [ngValue]="id">{{id}}</option>
+</select>
+</div>
+<div *ngIf="!isDelete">
+<input type = "text" placeholder="Name" [(ngModel)]="interviewer.name"/><br>
+<select name="date" id="date" [(ngModel)]="interviewer.priority" style="width: 174px;height: 24px;">
+    <option *ngFor= "let priority of priorities" [ngValue]="priority">{{priority}}</option>
+  </select><br>
+<!--<input type = "text" placeholder="Priority" [(ngModel)]="interviewer.priority"/><br> -->
+<input type = "text" placeholder="Supervisor Name" [(ngModel)]="interviewer.supervisor"/><br>
+<input type = "text" placeholder="Supervisor Contact" [(ngModel)]="interviewer.supervisorContact"/><br>
+
+
+</div>
+<br>
+<br>
+<div >
+  <button class="btn btn primary" (click)="goToHome()">Home</button>
+  <button class="btn btn success"(click)="performAction()" style="margin-left: 30%">{{ buttonName }}</button>
+</div>
+</div>

@@ -1,0 +1,55 @@
+<!--<input type = "number" id="id" placeholder="ID" [(ngModel)]="id">-->
+<div style="text-align: center">
+<select name="id" id="id" [(ngModel)]="id" style="width: 174px;height: 24px">
+    <option *ngFor= "let id of idsAvailable" [ngValue]="id">{{id}}</option>
+</select>
+</div>
+<br>
+<div style="text-align: center"><table cellpadding = "10px" cellspacing = "10px" style="width: 100%;text-align: center">
+  <tr>
+    <td>
+      Select Date
+    </td>
+    <td>
+        Select Month
+      </td>
+      <td>
+          Start Time
+        </td>
+        <td>
+            End Time
+          </td>
+  </tr>
+  <tr *ngFor="let timeSlot of timeSlots">
+    <td>
+      <select name="date" id="date" [(ngModel)]="timeSlot.dateNum" style="width: 95%;">
+        <option *ngFor= "let date of dates" [ngValue]="date">{{date}}</option>
+      </select>
+    </td>
+    <td>
+        <select name="month" id="month" [(ngModel)]="timeSlot.month" style="width: 95%;">
+            <option *ngFor= "let month of months" [ngValue]="month">{{month}}</option>
+        </select>
+    </td>  
+    <td>
+        <select name="start" id="start" [(ngModel)]="timeSlot.start" style="width: 95%;">
+            <option *ngFor= "let start of starts" [ngValue]="start">{{start}}</option>
+        </select>
+    </td>  
+    <td>
+        <select name="end" id="end" [(ngModel)]="timeSlot.end" style="width: 95%;">
+            <option *ngFor= "let end of ends" [ngValue]="end">{{end}}</option>
+        </select>
+    </td>  
+  </tr>
+  
+</table>
+</div>
+
+<br>
+<br>
+<div style="text-align: center">
+<button class="btn btn-primary" (click)="goHome()">Home</button>
+<button class="btn btn-primary" (click)="addMoreRows()" style="margin-left: 5%">Add</button>
+<button class="btn btn-primary" (click)="submit()" style="margin-left: 5%">Submit</button>
+</div>
